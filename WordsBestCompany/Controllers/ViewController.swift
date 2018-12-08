@@ -7,21 +7,25 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import GoogleSignIn
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
     
     @IBOutlet var txtPasswordTextFirld: UITextField!
     @IBOutlet var txtEmailIdTextField: UITextField!
     var login: Login?
-    var loginUserData: [LoginUserData?]?
-    var catagory: Catagory?
-    var catagoryData: [CatagoryData?]?
+//    var loginUserData: [LoginUserData?]?
+
+    var dict : [String : AnyObject]!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().delegate = self as! GIDSignInDelegate
+        GIDSignIn.sharedInstance().uiDelegate = self
         // Do any additional setup after loading the view, typically from a nib.
         self.getProfileData()
-        self.getCatagory()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,16 +34,89 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnSignInOnclickAction(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "signUpProceedseg", sender: self)
     }
     
     @IBAction func btnForgotPasswordOnclickAction(_ sender: Any) {
     }
     
     @IBAction func btnFacebookLoginOnclickAction(_ sender: Any) {
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            if (error == nil){
+                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                if fbloginresult.grantedPermissions != nil {
+                    if(fbloginresult.grantedPermissions.contains("email"))
+                    {
+                        self.getFBUserData()
+                        fbLoginManager.logOut()
+                    }
+                }
+            }
+        }
+    }
+    func getFBUserData(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    self.dict = result as! [String : AnyObject]
+                    print(result!)
+                    if let email = self.dict!["email"] as? String {
+                        // no error
+                        print(email)
+//                        self.txtEmailIdTextField.text = email ?? ""
+                        
+                    }
+                    if let last_name = self.dict!["last_name"] as? String {
+                        // no error
+                        print(last_name)
+//                        self.txtLastNameTextField.text = last_name ?? ""
+                        
+                    }
+                    if let first_name = self.dict!["first_name"] as? String {
+                        // no error
+//                        self.txtFirstNameTextField.text = first_name ?? ""
+                        
+                    }
+//                    self.txtLastNameTextField.isEnabled = false
+//                    self.txtFirstNameTextField.isEnabled = false
+//                    self.txtEmailIdTextField.isEnabled = false
+//                    print(self.dict)
+                }
+            })
+        }
+    }
+    @IBAction func btnGoogleLoginOnclickAction(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("error",error.localizedDescription)
+        } else {
+            
+            let fullName = user.profile.name
+            
+            let email = user.profile.email
+            UserDefaults.standard.set(fullName, forKey: "GoogleFullName")
+            UserDefaults.standard.set(email, forKey: "GoogleEmail")
+            //            let fullNameGoogleLogin    = UserDefaults.standard.string(forKey: "GoogleFullName")
+            //            let fullNameArr = fullNameGoogleLogin?.components(separatedBy: " ")
+            //
+            //            let firstName    = fullNameArr![0]
+            //            let surname = fullNameArr![1]
+            //            self.txtEmailIdTextField.text = UserDefaults.standard.string(forKey: "GoogleEmail")
+            //            self.txtFirstNameTextField.text = firstName
+            //            self.txtLastNameTextField.text = surname
+            //            self.txtLastNameTextField.isEnabled = false
+            //            self.txtFirstNameTextField.isEnabled = false
+            //            self.txtEmailIdTextField.isEnabled = false
+            
+            
+            // ...
+        }
     }
     
-    @IBAction func btnGoogleLoginOnclickAction(_ sender: Any) {
-    }
     @IBAction func btnSignUpLoginOnclickAction(_ sender: Any) {
     }
     
@@ -48,13 +125,7 @@ class ViewController: UIViewController {
     func getProfileData()
     {
         let paramDict = NSMutableDictionary();
-//        email_id  : vipul@exceptionaire.co
-//        password  :Cyber@8131
-//        device_id 123123123
-//        imei_no   123123123
-//        device      “iOS”
 
-        
         let IMEINo = UIDevice.current.identifierForVendor!.uuidString
         paramDict.setValue("123123123", forKey: "imei_no")
         
@@ -82,6 +153,7 @@ class ViewController: UIViewController {
         self.getMyProfile(urlString: ConstantsClass.Login_User, paramDict: parametersDict as NSDictionary)
         
     }
+    
     func getMyProfile(urlString:String , paramDict:NSDictionary)
     {
 //        if Utilities.sharedInstance.isConnectedToNetwork() {
@@ -91,12 +163,94 @@ class ViewController: UIViewController {
                 if(isSuccess)
                 {
                     print("ResponseMyprofile%@",data)
+                    if let data = data.data(using: String.Encoding.utf8) {
+
+                    do {
+                        
+                        let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
+                        //  return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                        print("json%@",json)
+                        if let dictionary = json as? [String: Any] {
+                         var dict = dictionary["data"]
+                            print("Something went dict",dict)
+//                            let mirror = Mirror(reflecting: dict)
+//                            for child in mirror.children  {
+//                                print("key: \(child.label), value: \(child.value)")
+//                            }
+                           
+                            
+                        }
+                    }
+                        catch {
+                        print("Something went wrong")
+                    }
+                    }
+                    var trimmedString = data.trimmingCharacters(in: .whitespaces)
                     
-                }
-                else
-                {
                     
-                }
+                    let possibleWhiteSpace:NSArray = ["\t", "\n\r", "\n","\r","\r\n\r\n", "  "] //here you add other types of white space
+                    
+                    possibleWhiteSpace.enumerateObjects { (whiteSpace, idx, stop) -> Void in
+                        trimmedString = trimmedString.replacingOccurrences(of: whiteSpace as! String, with: "")
+                    }
+                   
+                        do
+                        {
+                            let decoder = JSONDecoder()
+                            self?.login = try decoder.decode(Login.self, from: trimmedString.data(using: .utf8) ?? Data(capacity: 1))
+//                            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+                            guard let status = self?.login?.status else {
+                                return
+                            }
+                            print("Status",status)
+                            if status == "Fail"
+                            {
+                                DispatchQueue.main.async {
+                                    //                            Utilities.sharedInstance.hideHUD(view: (self?.view)!);
+                                    //                            let result =  self?.updateAddress?.message
+                                    //                            Utilities.sharedInstance.showErrorMessage("", message: result!, controller: self!)
+                                    
+                                }
+                            }
+                            else if status == "Success" {
+                                
+                               /*
+                                guard let login = self?.login?.data else{
+                                    return
+                                }
+                                
+                                self?.loginUserData = login
+                                DispatchQueue.main.async {
+                                    
+                                    //                            Utilities.sharedInstance.hideHUD(view: (self?.view)!);
+                                    //                            let result =  self?.updateAddress?.message
+                                    //                            Utilities.sharedInstance.showErrorMessage("", message: result!, controller: self!)
+                                    //                            let userName = (self?.txtUserNameEditTextField.text)! + (self?.txtSirnameTextField.text)!
+                                    //
+                                    //
+                                    //                            UserDefaults.standard.set(userName , forKey: "UserName")
+                                    //                            self?.navigationItem.rightBarButtonItem = nil
+                                    
+                                    
+                                }
+                                */
+                                
+                            }
+                        }
+                        catch {
+                            print(error.localizedDescription)
+                            DispatchQueue.main.async {
+                                //                        Utilities.sharedInstance.hideHUD(view: (self?.view)!);
+                                //                        Utilities.sharedInstance.showErrorMessage("", message: error.localizedDescription, controller: self!)
+                            }
+                        }
+                    
+                    }
+                    else
+                    {
+                        
+                    }
                 },  failureCallback: { [weak self] (error) in
                     
 //                    DispatchQueue.main.async {
@@ -119,57 +273,6 @@ class ViewController: UIViewController {
     }
     
     
-    func getCatagory()
-    {
-        let paramDict = NSMutableDictionary();
-        
-        paramDict.setValue("216", forKey: "user_id")
-        
-        print("paramDict is",paramDict)
-        
-        let user_id = paramDict["user_id"]
-     
-        
-        let parametersDict = ["user_id": user_id!]
-        
-        
-        self.getCatagoryData(urlString: ConstantsClass.GetCategories, paramDict: parametersDict as NSDictionary)
-        
-    }
-    func getCatagoryData(urlString:String , paramDict:NSDictionary)
-    {
-        //        if Utilities.sharedInstance.isConnectedToNetwork() {
-        //            Utilities.sharedInstance.showHUD(view: self.view)
-        
-        WebServiceManagerClass.sharedInstance.GetDataFromAPI (urlString: urlString, parametersDict: paramDict as! Dictionary <String,AnyObject>, successCallback: { [weak self] (isSuccess, data,responseMessage) in
-            if(isSuccess)
-            {
-                print("ResponseCatagoryDatas%@",data)
-                
-            }
-            else
-            {
-                
-            }
-            },  failureCallback: { [weak self] (error) in
-                
-                //                    DispatchQueue.main.async {
-                //                        Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-                //
-                //                        if self != nil {
-                //                            ErrorUtils.showErrorForServerWithCode(error, controller: self!)
-                //                        }
-                //                        Utilities.sharedInstance.showErrorMessage("", message: AlertMessages.NETWORK_ERROR_MESSAGE, controller: self!)
-                //                    }
-        })
-        //        }
-        //        else {
-        //            DispatchQueue.main.async {
-        //                Utilities.sharedInstance.showErrorMessage("", message:AlertMessages.NETWORK_ERROR_MESSAGE, controller: self)
-        //                Utilities.sharedInstance.hideHUD(view: (self.view)!);
-        //            }
-        //        }
-        
-    }
+    
 }
 

@@ -10,54 +10,10 @@ import UIKit
 
 class ConstantsClass: NSObject {
  
-static let baseUrl = "https://falcon.nxglabs.in/api/"//production
-//static let baseUrl = "https://uatfalcon.nxglabs.in/api/"//uat
-static let loginUrl = "%@Login/LoginOTP"
-static let sugnUpUrl = "%@User/SignUp"
-static let signUpVarifyOtp = "%@User/VerifyOtp"
-static let VerifyLoginOtp = "%@Login/VerifyLoginOtp"//    Login/VerifyLoginOtp
-static let GetBannerImg = "%@User/getBannerImage"//   User/getBannerImage
-static let ImageBaseUrl = "https://falconadmin.nxglabs.in/uploadedimg/banners/"
-static let SpashScreenImgBaseUrl = "https://uatfalconadmin.nxglabs.in/uploadedimg/splashscreen/"
-static let ResendVerficationPin = "%@User/ResendVerficationPin"
-static let ResendLoginVerficationPin = "%@Login/ResendLoginVerficationPin"
-static let GetSplashScreenImages = "%@User/GetSplashScreenImages"
-static let LogOutFromPanel = "%@User/LogOutFromPanel"
-static let GetAllCourses = "%@Courses/GetAllCourses"
-static let CoursesBAseImgUrl = "https://falconadmin.nxglabs.in/uploadedimg/courses/"
-static let GetFeatureList = "%@Videos/GetFeatureList"
-static let FeaturesBaseImgUrl = "https://falconadmin.nxglabs.in/videos/"//adduatif want uat vdo
-static let TopicBaseImgUrl = "https://falconadmin.nxglabs.in/uploadedimg/subjects/"
-static let  GetAllSubjectByCourses =  "%@Courses/GetAllSubjectByCourses"
-static let SubjectsBaseImgUrl = "https://falconadmin.nxglabs.in/uploadedimg/subjects/"
-static let  GetAllVideosBySubject =  "%@Subject/GetAllVideosBySubject"
-//static let SubjectsVideoBaseImgUrl = "http://falconadmin.nxglabs.in/videos/" same as features base url
-static let GetVideoDetails = "%@Videos/GetVideoDetails"
-static let GetMyProfile = "%@User/getMyProfile"
-static let GetPageContent = "%@Content/GetPageContent"
-static let SubmitQuery = "%@Query/submitQuery"
-static let AddUpdateAddress = "%@User/addUpdateAddress"
-static let GetSearchResult = "%@search/GetSearchResult"
-static let GetCourseSearch = "%@search/GetCourseSearch"
-static let UpdateMyProfileName = "%@User/updateMyProfileName"
-static let GetSubscriptionPlans = "%@Subscription/GetSubscriptionPlans"
-static let GetMySubscriptionHistory = "%@Subscription/getMySubscriptionHistory"
-static let AdddefaultAddress = "%@User/adddefaultAddress"
-static let AddToSubscription = "%@Subscription/AddToSubscription"
-static let checkSubscriptionStatus = "%@Subscription/checkSubscriptionStatus"
-static let SendEmailInvoice = "%@Subscription/SendEmailInvoice"
-static let GetRecentVideos = "%@Videos/GetRecentVideos"
-static let MyFavourites = "%@Favourite/myFavourites"
-static let AddVideoToWatchList = "%@Videos/AddVideoToWatchList"
-static let GetRecentWatchHistory = "%@Videos/GetRecentWatchHistory"
-static let AddToFavourites = "%@Favourite/addToFavourites"
-static let RemoveFromFavourites = "%@Favourite/removeFromFavourites"
-static let GenerateSessionId = "%@User/GenerateSessionId"//not done
-static let GetNotifications = "%@Notification/GetNotifications"
-static let GetAllFreeVideos = "%@Subject/GetAllFreeVideos"//for new dashboardfor free user
-static let GetAllSubjects = "%@Subject/GetAllSubjects"//for new dashboardfor subscribed user
-//https://falcon.nxglabs.in/api/
-static let checkVersion = "%@versioncheck/checkVersion"
+static let Login_User = "http://18.188.206.83:3001/login_user"
+static let GetCategories =  "http://18.188.206.83:3001/getCategories"
+static let imgUrl =  "https://rrewmsexceptionaire.s3.amazonaws.com/wbc/"
+
 }
 
 struct AlertMessages {

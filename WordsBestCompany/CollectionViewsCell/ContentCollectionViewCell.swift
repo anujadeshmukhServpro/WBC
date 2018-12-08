@@ -10,4 +10,6 @@ import UIKit
 
 class ContentCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var imgCatagoryImage: UIImageView!
+    @IBOutlet var lblHeadingLAbel: UILabel!
 }

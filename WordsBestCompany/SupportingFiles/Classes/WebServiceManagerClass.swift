@@ -21,31 +21,21 @@ class WebServiceManagerClass: NSObject,URLSessionDelegate {
     static let sharedInstance = WebServiceManagerClass()
     var manager : AFURLSessionManager? = nil
     var PreviousTask : URLSessionDataTask? = nil
+    
     func GetDataFromAPI(urlString :String ,parametersDict: Dictionary<String, AnyObject>,successCallback:@escaping (Bool, String, Bool)->Void, failureCallback:@escaping (NSError)->Void) -> Void
     {
      
         let parameters = parametersDict
-        let reuestURl = String(format:urlString,ConstantsClass.baseUrl)
+        let reuestURl = String(format:urlString, ConstantsClass.Login_User)
         
         
         //now create the NSMutableRequest object using the url object
         let request = NSMutableURLRequest(url: NSURL(string:reuestURl)! as URL)
-//        sessionConfig.timeoutIntervalForResource = 60.0
-//        let session = URLSession(configuration: sessionConfig)
         //create the session object
-//        let session = URLSession.shared
+        let session = URLSession.shared
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.timeoutIntervalForRequest = 30.0
         sessionConfig.timeoutIntervalForResource = 30.0
-//        var session = URLSession(configuration: sessionConfig , del)
-       let session = URLSession(
-            configuration: sessionConfig,
-            
-            delegate: NSURLSessionPinningDelegate(),
-          
-            delegateQueue: nil)
-//        session.configuration.timeoutIntervalForRequest = 60.0
-//        session.configuration.timeoutIntervalForResource = 30.0
 
         request.httpMethod = "POST" //set http method as POST
         
@@ -77,7 +67,6 @@ class WebServiceManagerClass: NSObject,URLSessionDelegate {
            
             print("Response without string ",responseString)
             
-            responseString = self.aesDecryption(to: responseString)
            
            
 
@@ -86,7 +75,6 @@ class WebServiceManagerClass: NSObject,URLSessionDelegate {
             
             successCallback(isSuccess,responseString ?? "{}",true);
             
-//            self.ssldemo()
             
         })
         
@@ -110,104 +98,4 @@ class WebServiceManagerClass: NSObject,URLSessionDelegate {
         }
         return nil
     }
-    func ssldemo()
-    {
-        if let url = NSURL(string: "https://falcon.nxglabs.in/api/User/GetSplashScreenImages") {
-            
-            let session = URLSession(
-                configuration: URLSessionConfiguration.ephemeral,
-                delegate: NSURLSessionPinningDelegate(),
-                delegateQueue: nil)
-            
-            
-            let task = session.dataTask(with: url as URL, completionHandler: { (data, response, error) -> Void in
-                if error != nil {
-                    print("error: \(error!.localizedDescription): \(error!)")
-                } else if data != nil {
-                    if let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) {
-                        print("Received data:\n\(str)")
-                    } else {
-                        print("Unable to convert data to text")
-                    }
-                }
-            })
-            
-            task.resume()
-        } else {
-            print("Unable to create NSURL")
-        }
-    }
 }
-class NSURLSessionPinningDelegate: NSObject, URLSessionDelegate {
-//    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-//        let serverTrust = challenge.protectionSpace.serverTrust
-//        let certificate =  SecTrustGetCertificateAtIndex(serverTrust!, 0)
-//
-//        //set ssl polocies for domain name check
-//        let policies = NSMutableArray()
-//        policies.add(SecPolicyCreateSSL(true, challenge.protectionSpace.host as CFString))
-//        SecTrustSetPolicies(serverTrust!, policies)
-//
-//        //evaluate server certifiacte
-//        var result:SecTrustResultType =  SecTrustResultType(rawValue: 0)!
-//        SecTrustEvaluate(serverTrust!, &result)
-//        let isServerTRusted:Bool =  (result == SecTrustResultType.unspecified || result == SecTrustResultType.proceed)
-//
-//        //get Local and Remote certificate Data
-//
-//        let remoteCertificateData:NSData =  SecCertificateCopyData(certificate!)
-//        let pathToCertificate = Bundle.main.path(forResource: "b5718d309b9e07a", ofType: "crt")
-//        let localCertificateData:NSData = NSData(contentsOfFile: pathToCertificate!)!
-//
-//        //Compare certificates
-//        if(isServerTRusted && remoteCertificateData.isEqual(to: localCertificateData as Data)){
-//            let credential:URLCredential =  URLCredential(trust:serverTrust!)
-//            completionHandler(.useCredential,credential)
-//        }
-//        else{
-//            completionHandler(.cancelAuthenticationChallenge,nil)
-//        }
-//    }
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Swift.Void) {
-
-        // Adapted from OWASP https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#iOS
-
-        if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
-            if let serverTrust = challenge.protectionSpace.serverTrust {
-                var secresult = SecTrustResultType.invalid
-                let status = SecTrustEvaluate(serverTrust, &secresult)
-
-                if(errSecSuccess == status) {
-                    if let serverCertificate = SecTrustGetCertificateAtIndex(serverTrust, 0) {
-                        let serverCertificateData = SecCertificateCopyData(serverCertificate)
-                        let data = CFDataGetBytePtr(serverCertificateData);
-                        let size = CFDataGetLength(serverCertificateData);
-                        let cert1 = NSData(bytes: data, length: size)
-                        let file_der = Bundle.main.path(forResource: "Certificate", ofType: "der")
-                       
-                        if let file = file_der {
-                            if let cert2 = NSData(contentsOfFile: file) {
-                                if cert1.isEqual(to: cert2 as Data) {
-                                    completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust:serverTrust))
-                                    return
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        // Pinning failed
-        completionHandler(URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
-    }
-    func reject(with completionHandler: ((URLSession.AuthChallengeDisposition, URLCredential?) -> Void)) {
-        completionHandler(.cancelAuthenticationChallenge, nil)
-    }
-    
-    func accept(with serverTrust: SecTrust, _ completionHandler: ((URLSession.AuthChallengeDisposition, URLCredential?) -> Void)) {
-        completionHandler(.useCredential, URLCredential(trust: serverTrust))
-    }
-    
-}
-
