@@ -43,7 +43,7 @@ struct LoginUserData : Decodable{
 //            decoder.keyDecodingStrategy = .convertFromSnakeCase
            
             self.init(userId: userid, firstName: firstname, lastName: lastname, emailId: emailid, userPicture: userpicture)
-
+//yor have to convert snake to camel
         }
 }
 struct Login : Decodable{
