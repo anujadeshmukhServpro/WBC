@@ -1,0 +1,6 @@
+framework module Pods_WordsBestCompanyUITests {
+  umbrella header "Pods-WordsBestCompanyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
