@@ -10,6 +10,7 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
 
+    @IBOutlet var lblMenuHeadingLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

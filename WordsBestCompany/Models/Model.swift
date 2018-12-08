@@ -31,13 +31,13 @@ struct Login : Decodable{
   
     enum CodingKeys : String, CodingKey {
         case status = "status"
-//        case data = "data"
-//        case message = "message"
+
         case message, data
       
     }
     
 }
+
 struct CatagoryData : Decodable{
     let categoryId : Int?
     let categoryName : String?

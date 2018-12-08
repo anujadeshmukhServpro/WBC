@@ -22,13 +22,15 @@ class ContaintsViewController: UIViewController ,LCBannerViewDelegate   {
         super.viewDidLoad()
         self.getBannerImages()
         self.getCatagory()
+        let revealviewcontroller:SWRevealViewController = self.revealViewController()
+//        btnMenu.target = revealviewcontroller
+        
+        if revealviewcontroller != nil {
 
-//        if revealviewcontroller() != nil {
-//
-//            btnMenu.target = self.revealviewcontroller()
-//            btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
-//            self.view.addGestureRecognizer(self.revealviewcontroller().panGestureRecognizer())
-//                    }
+            btnMenu.target = self.revealViewController()
+            btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                    }
         // Do any additional setup after loading the view.
     }
 

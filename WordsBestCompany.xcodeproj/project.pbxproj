@@ -14,6 +14,10 @@
 		1828926621BBE32000E69E76 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828926421BBE31F00E69E76 /* Utilities.swift */; };
 		1828926721BBE97E00E69E76 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1828926821BBE97E00E69E76 /* AFNetworking.framework */; };
 		1828926A21BBEA5700E69E76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1828926921BBEA5700E69E76 /* SystemConfiguration.framework */; };
+		1828926B21BC2EDE00E69E76 /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 1828925D21BB958C00E69E76 /* SWRevealViewController.h */; };
+		1828926C21BC2EDE00E69E76 /* WordsBestCompany-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 1828925B21BB958B00E69E76 /* WordsBestCompany-Bridging-Header.h */; };
+		1828926E21BC3BDD00E69E76 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828926D21BC3BDD00E69E76 /* MenuViewController.swift */; };
+		1828927021BC3C2900E69E76 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828926F21BC3C2900E69E76 /* MenuTableViewCell.swift */; };
 		1833E19E21B9858F004F0D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833E19D21B9858F004F0D95 /* AppDelegate.swift */; };
 		1833E1A021B9858F004F0D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833E19F21B9858F004F0D95 /* ViewController.swift */; };
 		1833E1A321B9858F004F0D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1833E1A121B9858F004F0D95 /* Main.storyboard */; };
@@ -63,6 +67,8 @@
 		1828926421BBE31F00E69E76 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1828926821BBE97E00E69E76 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1828926921BBEA5700E69E76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1828926D21BC3BDD00E69E76 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1828926F21BC3C2900E69E76 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1833E19A21B9858F004F0D95 /* WordsBestCompany.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsBestCompany.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1833E19D21B9858F004F0D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1833E19F21B9858F004F0D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,12 +142,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1828925821BAAFCE00E69E76 /* CollectionViewsCell */ = {
+		1828925821BAAFCE00E69E76 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				1828925921BAB00600E69E76 /* ContentCollectionViewCell.swift */,
+				1828926F21BC3C2900E69E76 /* MenuTableViewCell.swift */,
 			);
-			path = CollectionViewsCell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		1833E19121B9858F004F0D95 = {
@@ -170,7 +177,7 @@
 		1833E19C21B9858F004F0D95 /* WordsBestCompany */ = {
 			isa = PBXGroup;
 			children = (
-				1828925821BAAFCE00E69E76 /* CollectionViewsCell */,
+				1828925821BAAFCE00E69E76 /* Cells */,
 				1833E21821BA6D50004F0D95 /* Controllers */,
 				1833E20E21BA4BB8004F0D95 /* Models */,
 				1833E1CB21BA309B004F0D95 /* SupportingFiles */,
@@ -249,6 +256,7 @@
 			children = (
 				1833E19F21B9858F004F0D95 /* ViewController.swift */,
 				1833E21921BA6DE2004F0D95 /* ContaintsViewController.swift */,
+				1828926D21BC3BDD00E69E76 /* MenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -554,6 +562,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1828926B21BC2EDE00E69E76 /* SWRevealViewController.h in Sources */,
+				1828926E21BC3BDD00E69E76 /* MenuViewController.swift in Sources */,
+				1828926C21BC2EDE00E69E76 /* WordsBestCompany-Bridging-Header.h in Sources */,
 				1833E22721BA9FDD004F0D95 /* credentials.plist in Sources */,
 				1833E1A021B9858F004F0D95 /* ViewController.swift in Sources */,
 				1833E21021BA4BDA004F0D95 /* Model.swift in Sources */,
@@ -561,6 +572,7 @@
 				1828925A21BAB00600E69E76 /* ContentCollectionViewCell.swift in Sources */,
 				1833E1D821BA396A004F0D95 /* WebServiceManagerClass.swift in Sources */,
 				1828926621BBE32000E69E76 /* Utilities.swift in Sources */,
+				1828927021BC3C2900E69E76 /* MenuTableViewCell.swift in Sources */,
 				1833E21A21BA6DE2004F0D95 /* ContaintsViewController.swift in Sources */,
 				1833E1DF21BA3F0A004F0D95 /* ConstantsClass.swift in Sources */,
 				1828925E21BB958D00E69E76 /* SWRevealViewController.m in Sources */,

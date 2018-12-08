@@ -122,7 +122,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sourceApplication: sourceApplication,
             annotation: annotation)
     }
-
+    func switchBack() {
+        
+        // switch back to view controller 1
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        
+        self.window?.rootViewController = nav
+    }
 
 }
 extension UIApplication {

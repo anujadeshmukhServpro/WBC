@@ -7,12 +7,34 @@
 //
 
 import UIKit
+import Kingfisher
 
-class MenuViewController: UIViewController {
+
+class MenuViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+
+    @IBOutlet var imgProfileImage: UIImageView!
+    @IBOutlet var lblFirstNameLAbel: UILabel!
+    @IBOutlet var imgProfileImageView: RoundUIView!
+    @IBOutlet var tblMenuTableView: UITableView!
+    var ManuNameArray:Array = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+ ManuNameArray = ["Home","Logout"]
+//        var dict = UserDefaults.standard.value(forKey: "ProfileData")
+//        print(dict)
+        self.lblFirstNameLAbel.text = UserDefaults.standard.value(forKey: "name") as! String
+        
+        let imageUrlString = UserDefaults.standard.value(forKey: "profile")
+        //                imageUrlString = ConstantsClass.FeaturesBaseImgUrl  + imageUrlString!
+        let imageUrl:NSURL = NSURL(string: imageUrlString! as! String)!
+        let resourse = ImageResource(downloadURL: imageUrl as URL, cacheKey: imageUrlString as! String)
+        DispatchQueue.main.async {
+            self.imgProfileImage.kf.setImage(with: resourse)
+            self.imgProfileImage.contentMode = UIViewContentMode.scaleAspectFit
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +53,41 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ManuNameArray.count
+        
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
+        
+        cell.lblMenuHeadingLabel.text! = ManuNameArray[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let revealviewcontroller:SWRevealViewController = self.revealViewController()
+        
+        let cell:MenuTableViewCell = tableView.cellForRow(at: indexPath) as! MenuTableViewCell
+        print(cell.lblMenuHeadingLabel.text!)
+        if cell.lblMenuHeadingLabel.text! == "Home"
+        {
+            print("Home Tapped")
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "ContaintsViewController") as! ContaintsViewController
+            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
+            
+            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
+            
+        }
+        else if cell.lblMenuHeadingLabel.text! == "Logout"
+        {
+            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                delegate.switchBack()
+            }
+        }
+        
+      
+    }
 }
