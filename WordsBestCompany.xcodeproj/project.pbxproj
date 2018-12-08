@@ -10,6 +10,10 @@
 		1828925A21BAB00600E69E76 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828925921BAB00600E69E76 /* ContentCollectionViewCell.swift */; };
 		1828925E21BB958D00E69E76 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828925C21BB958C00E69E76 /* SWRevealViewController.m */; };
 		1828926021BB95BA00E69E76 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1828925F21BB95BA00E69E76 /* QuartzCore.framework */; };
+		1828926521BBE32000E69E76 /* ErrorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828926321BBE31F00E69E76 /* ErrorUtils.swift */; };
+		1828926621BBE32000E69E76 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828926421BBE31F00E69E76 /* Utilities.swift */; };
+		1828926721BBE97E00E69E76 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1828926821BBE97E00E69E76 /* AFNetworking.framework */; };
+		1828926A21BBEA5700E69E76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1828926921BBEA5700E69E76 /* SystemConfiguration.framework */; };
 		1833E19E21B9858F004F0D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833E19D21B9858F004F0D95 /* AppDelegate.swift */; };
 		1833E1A021B9858F004F0D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833E19F21B9858F004F0D95 /* ViewController.swift */; };
 		1833E1A321B9858F004F0D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1833E1A121B9858F004F0D95 /* Main.storyboard */; };
@@ -55,6 +59,10 @@
 		1828925C21BB958C00E69E76 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		1828925D21BB958C00E69E76 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		1828925F21BB95BA00E69E76 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1828926321BBE31F00E69E76 /* ErrorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorUtils.swift; sourceTree = "<group>"; };
+		1828926421BBE31F00E69E76 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		1828926821BBE97E00E69E76 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1828926921BBEA5700E69E76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1833E19A21B9858F004F0D95 /* WordsBestCompany.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsBestCompany.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1833E19D21B9858F004F0D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1833E19F21B9858F004F0D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1828926A21BBEA5700E69E76 /* SystemConfiguration.framework in Frameworks */,
+				1828926721BBE97E00E69E76 /* AFNetworking.framework in Frameworks */,
 				1828926021BB95BA00E69E76 /* QuartzCore.framework in Frameworks */,
 				1833E1F221BA43AC004F0D95 /* Foundation.framework in Frameworks */,
 				1833E1EE21BA4385004F0D95 /* UIKit.framework in Frameworks */,
@@ -194,6 +204,8 @@
 		1833E1CB21BA309B004F0D95 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				1828926321BBE31F00E69E76 /* ErrorUtils.swift */,
+				1828926421BBE31F00E69E76 /* Utilities.swift */,
 				1833E22021BA739C004F0D95 /* SWRevealViewController */,
 				1833E1D221BA3229004F0D95 /* Classes */,
 				1833E1CC21BA30DE004F0D95 /* TPKeyboard */,
@@ -254,6 +266,8 @@
 		517FA7E3B90B4089BE8EB852 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1828926921BBEA5700E69E76 /* SystemConfiguration.framework */,
+				1828926821BBE97E00E69E76 /* AFNetworking.framework */,
 				1828925F21BB95BA00E69E76 /* QuartzCore.framework */,
 				1833E1F721BA4455004F0D95 /* CFNetwork.framework */,
 				1833E1F121BA43AC004F0D95 /* Foundation.framework */,
@@ -543,8 +557,10 @@
 				1833E22721BA9FDD004F0D95 /* credentials.plist in Sources */,
 				1833E1A021B9858F004F0D95 /* ViewController.swift in Sources */,
 				1833E21021BA4BDA004F0D95 /* Model.swift in Sources */,
+				1828926521BBE32000E69E76 /* ErrorUtils.swift in Sources */,
 				1828925A21BAB00600E69E76 /* ContentCollectionViewCell.swift in Sources */,
 				1833E1D821BA396A004F0D95 /* WebServiceManagerClass.swift in Sources */,
+				1828926621BBE32000E69E76 /* Utilities.swift in Sources */,
 				1833E21A21BA6DE2004F0D95 /* ContaintsViewController.swift in Sources */,
 				1833E1DF21BA3F0A004F0D95 /* ConstantsClass.swift in Sources */,
 				1828925E21BB958D00E69E76 /* SWRevealViewController.m in Sources */,

@@ -68,40 +68,17 @@ func getBannerImages()
     }
     func getCatagoryData(urlString:String , paramDict:NSDictionary)
     {
-        //        if Utilities.sharedInstance.isConnectedToNetwork() {
-        //            Utilities.sharedInstance.showHUD(view: self.view)
+              if Utilities.sharedInstance.isConnectedToNetwork() {
+                 Utilities.sharedInstance.showHUD(view: self.view)
         
         WebServiceManagerClass.sharedInstance.GetDataFromAPI (urlString: urlString, parametersDict: paramDict as! Dictionary <String,AnyObject>, successCallback: { [weak self] (isSuccess, data,responseMessage) in
             if(isSuccess)
             {
                 print("ResponseCatagoryDatas%@",data)
-                if let data = data.data(using: String.Encoding.utf8) {
 
-                do {
-                    
-                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
-                    //  return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                    print("json%@",json)
-                    
-                    
-                    
-
-                }
-                catch {
-                    print("Something went wrong")
-                }
-            }
-                var trimmedString = data.trimmingCharacters(in: .whitespaces)
-             
-                
-                let possibleWhiteSpace:NSArray = ["\t", "\n\r", "\n","\r","\r\n\r\n", "  ", "//","/"] //here you add other types of white space
-                
-                possibleWhiteSpace.enumerateObjects { (whiteSpace, idx, stop) -> Void in
-                    trimmedString = trimmedString.replacingOccurrences(of: whiteSpace as! String, with: "")
-                }
                 do
                 {
-                    self?.catagory = try JSONDecoder().decode(Catagory.self, from: trimmedString.data(using: .utf8) ?? Data(capacity: 1))
+                    self?.catagory = try JSONDecoder().decode(Catagory.self, from: data)
                     guard let status = self?.catagory?.status else {
                         return
                     }
@@ -109,13 +86,12 @@ func getBannerImages()
                     if status == "Fail"
                     {
                         DispatchQueue.main.async {
-//                            Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-//                            let result =  self?.updateAddress?.message
-//                            Utilities.sharedInstance.showErrorMessage("", message: result!, controller: self!)
+                          Utilities.sharedInstance.hideHUD(view: (self?.view)!);
+                            Utilities.sharedInstance.showErrorMessage("", message: "FAil!", controller: self!)
                             
                         }
                     }
-                    else if status == "Success" {
+                    else if status == "success" {
                         
                         
                         guard let catagory = self?.catagory?.data else{
@@ -125,14 +101,11 @@ func getBannerImages()
                         self?.catagoryData = catagory
                         DispatchQueue.main.async {
                             self?.CollectionView.reloadData()
-//                            Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-//                            let result =  self?.updateAddress?.message
-//                            Utilities.sharedInstance.showErrorMessage("", message: result!, controller: self!)
-//                            let userName = (self?.txtUserNameEditTextField.text)! + (self?.txtSirnameTextField.text)!
-//
-//
-//                            UserDefaults.standard.set(userName , forKey: "UserName")
-//                            self?.navigationItem.rightBarButtonItem = nil
+                           Utilities.sharedInstance.hideHUD(view: (self?.view)!);
+                           
+
+                          // UserDefaults.standard.set(userName , forKey: "UserName")
+                         
                             
                             
                         }
@@ -144,8 +117,8 @@ func getBannerImages()
                 catch {
                     print(error.localizedDescription)
                     DispatchQueue.main.async {
-//                        Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-//                        Utilities.sharedInstance.showErrorMessage("", message: error.localizedDescription, controller: self!)
+                       Utilities.sharedInstance.hideHUD(view: (self?.view)!);
+                       Utilities.sharedInstance.showErrorMessage("", message: error.localizedDescription, controller: self!)
                     }
                 }
                 
@@ -156,22 +129,22 @@ func getBannerImages()
             }
             },  failureCallback: { [weak self] (error) in
                 
-                //                    DispatchQueue.main.async {
-                //                        Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-                //
-                //                        if self != nil {
-                //                            ErrorUtils.showErrorForServerWithCode(error, controller: self!)
-                //                        }
-                //                        Utilities.sharedInstance.showErrorMessage("", message: AlertMessages.NETWORK_ERROR_MESSAGE, controller: self!)
-                //                    }
+                                   DispatchQueue.main.async {
+                                      Utilities.sharedInstance.hideHUD(view: (self?.view)!);
+                
+                                     if self != nil {
+                                          ErrorUtils.showErrorForServerWithCode(error, controller: self!)
+                                      }
+                                     Utilities.sharedInstance.showErrorMessage("", message: AlertMessages.NETWORK_ERROR_MESSAGE, controller: self!)
+                                   }
         })
-        //        }
-        //        else {
-        //            DispatchQueue.main.async {
-        //                Utilities.sharedInstance.showErrorMessage("", message:AlertMessages.NETWORK_ERROR_MESSAGE, controller: self)
-        //                Utilities.sharedInstance.hideHUD(view: (self.view)!);
-        //            }
-        //        }
+               }
+              else {
+                  DispatchQueue.main.async {
+                      Utilities.sharedInstance.showErrorMessage("", message:AlertMessages.NETWORK_ERROR_MESSAGE, controller: self)
+                        Utilities.sharedInstance.hideHUD(view: (self.view)!);
+                    }
+                }
         
     }
     /*
@@ -215,8 +188,8 @@ func getBannerImages()
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as? ContentCollectionViewCell
                 let catagoryData = self.catagoryData?[indexPath.row]
 //
-            cell?.lblHeadingLAbel.text = catagoryData?.category_name
-            let imageUrlString = catagoryData?.category_image
+            cell?.lblHeadingLAbel.text = catagoryData?.categoryName
+            let imageUrlString = catagoryData?.categoryImage
 //                imageUrlString = ConstantsClass.FeaturesBaseImgUrl  + imageUrlString!
                 let imageUrl:NSURL = NSURL(string: imageUrlString!)!
                 let resourse = ImageResource(downloadURL: imageUrl as URL, cacheKey: imageUrlString)

@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
-            timestampString = "565952521.777239"
+            timestampString = "565970494.895867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2"
@@ -25,8 +25,8 @@
                   symbolName = "WordsBestCompany.ContaintsViewController.__deallocating_deinit"
                   moduleName = "WordsBestCompany"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
-                  timestampString = "565899611.685328"
+                  urlString = "file:///Users/apple/Desktop/Anuja/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
+                  timestampString = "565968562.138908"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -40,8 +40,8 @@
                   symbolName = "WordsBestCompany.ContaintsViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; WordsBestCompany.ContaintsViewController"
                   moduleName = "WordsBestCompany"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
-                  timestampString = "565899611.691041"
+                  urlString = "file:///Users/apple/Desktop/Anuja/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
+                  timestampString = "565968562.143856"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -55,8 +55,8 @@
                   symbolName = "WordsBestCompany.ContaintsViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; WordsBestCompany.ContaintsViewController"
                   moduleName = "WordsBestCompany"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
-                  timestampString = "565899611.698905"
+                  urlString = "file:///Users/apple/Desktop/Anuja/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
+                  timestampString = "565968562.151144"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -70,8 +70,8 @@
                   symbolName = "WordsBestCompany.ContaintsViewController.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;WordsBestCompany.ContaintsViewController&gt;"
                   moduleName = "WordsBestCompany"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
-                  timestampString = "565899611.704123"
+                  urlString = "file:///Users/apple/Desktop/Anuja/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
+                  timestampString = "565968562.155399"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -85,8 +85,8 @@
                   symbolName = "WordsBestCompany.ContaintsViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;WordsBestCompany.ContaintsViewController&gt;"
                   moduleName = "WordsBestCompany"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
-                  timestampString = "565899611.708961"
+                  urlString = "file:///Users/apple/Desktop/Anuja/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
+                  timestampString = "565968562.1586"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -103,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
-            timestampString = "565952521.777338"
+            timestampString = "565970494.895955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "getCatagoryData(urlString:paramDict:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
-            timestampString = "565952521.777414"
+            timestampString = "565970494.896028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "getCatagoryData(urlString:paramDict:)"
             landmarkType = "7">
             <Locations>
@@ -134,13 +134,13 @@
                   symbolName = "closure #1 (Swift.Bool, Foundation.Data, Swift.Bool) -&gt; () in WordsBestCompany.ContaintsViewController.getCatagoryData(urlString: Swift.String, paramDict: __ObjC.NSDictionary) -&gt; ()"
                   moduleName = "WordsBestCompany"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
-                  timestampString = "565899611.738035"
+                  urlString = "file:///Users/apple/Desktop/Anuja/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
+                  timestampString = "565968562.177583"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "4699">
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "4604">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -149,12 +149,12 @@
                   symbolName = "closure #3 () -&gt; () in closure #1 (Swift.Bool, Foundation.Data, Swift.Bool) -&gt; () in WordsBestCompany.ContaintsViewController.getCatagoryData(urlString: Swift.String, paramDict: __ObjC.NSDictionary) -&gt; ()"
                   moduleName = "WordsBestCompany"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
-                  timestampString = "565899611.743867"
+                  urlString = "file:///Users/apple/Desktop/Anuja/WordsBestCompany/WordsBestCompany/Controllers/ContaintsViewController.swift"
+                  timestampString = "565968562.1810679"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
@@ -167,11 +167,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
-            timestampString = "565952521.777487"
+            timestampString = "565970494.8960969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "getCatagoryData(urlString:paramDict:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,12 +183,156 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
-            timestampString = "565952521.777559"
+            timestampString = "565970494.896167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "getCatagory()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.896237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "getCatagoryData(urlString:paramDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.8963031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "getCatagoryData(urlString:paramDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.896368"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "getCatagoryData(urlString:paramDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.896433"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getCatagoryData(urlString:paramDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.896497"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "getCatagoryData(urlString:paramDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.8965631"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "getCatagoryData(urlString:paramDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.896628"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getCatagoryData(urlString:paramDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.8967021"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WordsBestCompany/Controllers/ContaintsViewController.swift"
+            timestampString = "565970494.896767"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

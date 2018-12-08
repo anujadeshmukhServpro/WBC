@@ -22,7 +22,7 @@ class WebServiceManagerClass: NSObject,URLSessionDelegate {
     var manager : AFURLSessionManager? = nil
     var PreviousTask : URLSessionDataTask? = nil
     
-    func GetDataFromAPI(urlString :String ,parametersDict: Dictionary<String, AnyObject>,successCallback:@escaping (Bool, String, Bool)->Void, failureCallback:@escaping (NSError)->Void) -> Void
+    func GetDataFromAPI(urlString :String ,parametersDict: Dictionary<String, AnyObject>,successCallback:@escaping (Bool, Data, Bool)->Void, failureCallback:@escaping (NSError)->Void) -> Void
     {
      
         let parameters = parametersDict
@@ -73,7 +73,7 @@ class WebServiceManagerClass: NSObject,URLSessionDelegate {
             let isSuccess : Bool;
             isSuccess = true;
             
-            successCallback(isSuccess,responseString ?? "{}",true);
+            successCallback(isSuccess,data ,true);
             
             
         })
