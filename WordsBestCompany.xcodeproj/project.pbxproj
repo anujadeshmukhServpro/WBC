@@ -34,6 +34,8 @@
 		1833E21A21BA6DE2004F0D95 /* ContaintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833E21921BA6DE2004F0D95 /* ContaintsViewController.swift */; };
 		1833E22621BA9FD5004F0D95 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1833E22521BA9FD4004F0D95 /* credentials.plist */; };
 		1833E22721BA9FDD004F0D95 /* credentials.plist in Sources */ = {isa = PBXBuildFile; fileRef = 1833E22521BA9FD4004F0D95 /* credentials.plist */; };
+		18A7724B21BD617900E89248 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7724721BD617900E89248 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		18A7724C21BD617900E89248 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7724921BD617900E89248 /* TPKeyboardAvoidingScrollView.m */; };
 		8333A25176EEF8BEEB0C664C /* Pods_WordsBestCompanyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED4D6B3F6CAA3493938E658 /* Pods_WordsBestCompanyTests.framework */; };
 		8CEEE7271EE559197B26D3FE /* Pods_WordsBestCompany.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1046B6A9BC048B03880FC2A1 /* Pods_WordsBestCompany.framework */; };
 		D3AD10A425CBA6675CAA36F0 /* Pods_WordsBestCompanyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F41C1405A0E003735587CB /* Pods_WordsBestCompanyUITests.framework */; };
@@ -82,10 +84,6 @@
 		1833E1B921B9858F004F0D95 /* WordsBestCompanyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordsBestCompanyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1833E1BD21B9858F004F0D95 /* WordsBestCompanyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsBestCompanyUITests.swift; sourceTree = "<group>"; };
 		1833E1BF21B9858F004F0D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1833E1CE21BA30F1004F0D95 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
-		1833E1CF21BA30F2004F0D95 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
-		1833E1D021BA30F2004F0D95 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
-		1833E1D121BA30F2004F0D95 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		1833E1D321BA3253004F0D95 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		1833E1D521BA3253004F0D95 /* PopUpMessagesClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpMessagesClass.swift; sourceTree = "<group>"; };
 		1833E1D721BA396A004F0D95 /* WebServiceManagerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceManagerClass.swift; sourceTree = "<group>"; };
@@ -99,6 +97,10 @@
 		1833E21621BA5A8E004F0D95 /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
 		1833E21921BA6DE2004F0D95 /* ContaintsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaintsViewController.swift; sourceTree = "<group>"; };
 		1833E22521BA9FD4004F0D95 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		18A7724721BD617900E89248 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		18A7724821BD617900E89248 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		18A7724921BD617900E89248 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		18A7724A21BD617900E89248 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		1E71A2052A1613D34EC49AE8 /* Pods-WordsBestCompany.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordsBestCompany.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordsBestCompany/Pods-WordsBestCompany.release.xcconfig"; sourceTree = "<group>"; };
 		1ED4D6B3F6CAA3493938E658 /* Pods_WordsBestCompanyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordsBestCompanyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39296ED9468D951EB557C41C /* Pods-WordsBestCompany.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordsBestCompany.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordsBestCompany/Pods-WordsBestCompany.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,10 +225,10 @@
 		1833E1CC21BA30DE004F0D95 /* TPKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				1833E1D021BA30F2004F0D95 /* TPKeyboardAvoidingScrollView.h */,
-				1833E1CE21BA30F1004F0D95 /* TPKeyboardAvoidingScrollView.m */,
-				1833E1CF21BA30F2004F0D95 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
-				1833E1D121BA30F2004F0D95 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				18A7724A21BD617900E89248 /* TPKeyboardAvoidingScrollView.h */,
+				18A7724921BD617900E89248 /* TPKeyboardAvoidingScrollView.m */,
+				18A7724821BD617900E89248 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				18A7724721BD617900E89248 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboard;
 			sourceTree = "<group>";
@@ -565,6 +567,7 @@
 				1828926B21BC2EDE00E69E76 /* SWRevealViewController.h in Sources */,
 				1828926E21BC3BDD00E69E76 /* MenuViewController.swift in Sources */,
 				1828926C21BC2EDE00E69E76 /* WordsBestCompany-Bridging-Header.h in Sources */,
+				18A7724B21BD617900E89248 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				1833E22721BA9FDD004F0D95 /* credentials.plist in Sources */,
 				1833E1A021B9858F004F0D95 /* ViewController.swift in Sources */,
 				1833E21021BA4BDA004F0D95 /* Model.swift in Sources */,
@@ -576,6 +579,7 @@
 				1833E21A21BA6DE2004F0D95 /* ContaintsViewController.swift in Sources */,
 				1833E1DF21BA3F0A004F0D95 /* ConstantsClass.swift in Sources */,
 				1828925E21BB958D00E69E76 /* SWRevealViewController.m in Sources */,
+				18A7724C21BD617900E89248 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				1833E19E21B9858F004F0D95 /* AppDelegate.swift in Sources */,
 				1833E21721BA5A8E004F0D95 /* Designable.swift in Sources */,
 			);

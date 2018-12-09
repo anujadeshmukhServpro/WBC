@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjn-bn-rdc" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjn-bn-rdc" customClass="TPKeyboardAvoidingScrollView" customModule="WordsBestCompany" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00-WBC-splash-screen-" translatesAutoresizingMaskIntoConstraints="NO" id="GAf-nj-aDZ">
@@ -332,7 +332,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="40t-G3-dTm"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WL1-u1-Gwa"/>
                                 </connections>
                             </scrollView>
                         </subviews>

@@ -11,7 +11,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleSignIn
 
-class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
+class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate, UIScrollViewDelegate{
     
     @IBOutlet private var txtPasswordTextFirld: UITextField!
     @IBOutlet private var txtEmailIdTextField: UITextField!
@@ -20,6 +20,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addDoneButtonOnKeyboard()
         GIDSignIn.sharedInstance().delegate = self as! GIDSignInDelegate
         GIDSignIn.sharedInstance().uiDelegate = self
     }
@@ -243,7 +244,30 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
         }
         
     }
-    
+    @objc func doneButtonAction()
+    {
+        self.txtPasswordTextFirld.resignFirstResponder()
+        self.txtEmailIdTextField.resignFirstResponder()
+
+    }
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        let Cancel: UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [Cancel,flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.txtPasswordTextFirld.inputAccessoryView = doneToolbar
+        self.txtEmailIdTextField.inputAccessoryView = doneToolbar
+
+        
+        
+    }
     
     
 }
