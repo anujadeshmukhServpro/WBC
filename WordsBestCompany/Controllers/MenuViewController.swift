@@ -12,6 +12,8 @@ import Kingfisher
 
 class MenuViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
+    @IBOutlet var lblIDLabel: UILabel!
+    @IBOutlet var lblEmailIdLabel: UILabel!
     @IBOutlet var imgProfileImage: UIImageView!
     @IBOutlet var lblFirstNameLAbel: UILabel!
     @IBOutlet var imgProfileImageView: RoundUIView!
@@ -22,13 +24,16 @@ class MenuViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         super.viewDidLoad()
        
  ManuNameArray = ["Home","Logout"]
-//        var dict = UserDefaults.standard.value(forKey: "ProfileData")
-//        print(dict)
-        self.lblFirstNameLAbel.text = UserDefaults.standard.value(forKey: "name") as! String
+        print(UserDefaults.standard.value(forKey: "ProfileData"))
+        guard let dict = UserDefaults.standard.value(forKey: "ProfileData") as? [String: Any?],let name = dict["first_name"] as? String, let lastname = dict["last_name"] as? String, let id = dict["user_id"] as? Int, let profile = dict["user_picture"] as? String, let email_id = dict["email_id"] as? String else { return }
         
-        let imageUrlString = UserDefaults.standard.value(forKey: "profile")
+        print(dict)
+        self.lblFirstNameLAbel.text = name + " " + lastname
+        self.lblEmailIdLabel.text = email_id
+        self.lblIDLabel.text = String(id)
+        let imageUrlString = profile
         //                imageUrlString = ConstantsClass.FeaturesBaseImgUrl  + imageUrlString!
-        let imageUrl:NSURL = NSURL(string: imageUrlString! as! String)!
+        let imageUrl:NSURL = NSURL(string: imageUrlString)!
         let resourse = ImageResource(downloadURL: imageUrl as URL, cacheKey: imageUrlString as! String)
         DispatchQueue.main.async {
             self.imgProfileImage.kf.setImage(with: resourse)
@@ -36,6 +41,10 @@ class MenuViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         }
         
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -4,6 +4,12 @@ import UIKit
 import MBProgressHUD
 import SystemConfiguration
 
+/*enum TextFieldErrorType: String{
+    case emailMessage = "Please Enter email id"
+    case passwordMessage = "Please Enter password"
+    case invalidCredentials = "Please enter valid email id"
+}*/
+
 class Utilities: NSObject {
 
     
@@ -35,12 +41,12 @@ class Utilities: NSObject {
     ///   - message: message for alert
     ///   - controller: which controller to display
     func showErrorMessage (_ title: String, message: String, controller: UIViewController){
-       
-        let alertMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+               let alertMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertMessage.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         controller.present(alertMessage, animated: true, completion: nil)
     }
-        
+    
+    
     /// Check internet connectivity.
     func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()

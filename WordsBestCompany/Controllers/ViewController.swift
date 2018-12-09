@@ -13,20 +13,15 @@ import GoogleSignIn
 
 class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
     
-    @IBOutlet var txtPasswordTextFirld: UITextField!
-    @IBOutlet var txtEmailIdTextField: UITextField!
+    @IBOutlet private var txtPasswordTextFirld: UITextField!
+    @IBOutlet private var txtEmailIdTextField: UITextField!
     var login: Login?
-//    var loginUserData: [LoginUserData?]?
-
     var dict : [String : AnyObject]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         GIDSignIn.sharedInstance().delegate = self as! GIDSignInDelegate
         GIDSignIn.sharedInstance().uiDelegate = self
-        // Do any additional setup after loading the view, typically from a nib.
-//        self.getProfileData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +30,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
     }
     
     @IBAction func btnSignInOnclickAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "signUpProceedseg", sender: self)
+//        self.performSegue(withIdentifier: "signUpProceedseg", sender: self)
 
         if self.txtEmailIdTextField.text == ""
         {
@@ -80,7 +75,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
             }
         }
     }
-    func getFBUserData(){
+   fileprivate func getFBUserData(){
         if((FBSDKAccessToken.current()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
@@ -115,7 +110,8 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
     @IBAction func btnGoogleLoginOnclickAction(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    
+    internal func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             print("error",error.localizedDescription)
         } else {
@@ -128,7 +124,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
             var googlePopup = fullName + email
 
             Utilities.sharedInstance.showErrorMessage("Google Login Credentials", message: googlePopup, controller: self)
-            
+            GIDSignIn.sharedInstance().signOut()
 
         }
     }
@@ -140,34 +136,34 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
     }
     
     //Login and get ProfileData
-    func getProfileData()
-    {
-        let paramDict = NSMutableDictionary();
-
-        let IMEINo = UIDevice.current.identifierForVendor!.uuidString
-        paramDict.setValue("123123123", forKey: "imei_no")
-        
-        paramDict.setValue("123123123"  , forKey: "device_id")
-        paramDict.setValue("vipul@exceptionaire.co"  , forKey: "email_id")
-        paramDict.setValue("Cyber@8131"  , forKey: "password")
-        paramDict.setValue("iOS"  , forKey: "device")
-
-
-        
-        print("paramDict is",paramDict)
-        
-        let imei_no = paramDict["imei_no"]
-        let device_id = paramDict["device_id"]
-        let email_id = paramDict["email_id"]
-        let password = paramDict["password"]
-        
-        
-        
-        let parametersDict = ["imei_no": imei_no!,"device_id": device_id!,"email_id": email_id!,"password": password!]
-        
-        
-        self.getMyProfile(urlString: ConstantsClass.Login_User, paramDict: parametersDict as NSDictionary)
-        
+   private func getProfileData()
+   {
+    let paramDict = NSMutableDictionary();
+    
+    let IMEINo = UIDevice.current.identifierForVendor!.uuidString
+    paramDict.setValue("123123123", forKey: "imei_no")
+    
+    paramDict.setValue("123123123"  , forKey: "device_id")
+    paramDict.setValue("vipul@exceptionaire.co"  , forKey: "email_id")
+    paramDict.setValue("Cyber@8131"  , forKey: "password")
+    paramDict.setValue("iOS"  , forKey: "device")
+    
+    
+    
+    print("paramDict is",paramDict)
+    
+    let imei_no = paramDict["imei_no"]
+    let device_id = paramDict["device_id"]
+    let email_id = paramDict["email_id"]
+    let password = paramDict["password"]
+    
+    
+    
+    let parametersDict = ["imei_no": imei_no!,"device_id": device_id!,"email_id": email_id!,"password": password!]
+    
+    
+    self.getMyProfile(urlString: ConstantsClass.Login_User, paramDict: parametersDict as NSDictionary)
+    
     }
     
     func getMyProfile(urlString:String , paramDict:NSDictionary)
@@ -179,29 +175,21 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
                 if(isSuccess)
                 {
                     print("ResponseMyprofile%@",data)
-//                    if let data = data.data(using: String.Encoding.utf8) {
 //
                     do {
 
                         let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
-                        //  return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                       
 
                         if let dictionary = json {
                             let status = dictionary["status"] as! String
                             if status == "success"
                             {
-                         let dict = dictionary["data"]
-                            let name = dict!["first_name"] as! String
-                            let lastname = dict!["last_name"] as! String
-                            let id = dict!["user_id"] as! Int
-                            let profile = dict!["user_picture"] as! String
-                            let email_id = dict!["email_id"] as! String
-                            UserDefaults.standard.set(name, forKey: "name")
-                            UserDefaults.standard.set(profile, forKey: "profile")
-
-                            UserDefaults.standard.set(dict, forKey: "GoogleFullName")
-                            UserDefaults.standard.set(dict, forKey: "ProfileData")
+                                guard let dict = dictionary["data"] else { return }
+                                
                             print("Something went dict",dict)
+                                UserDefaults.standard.setValue(dict as! [String: Any?], forKey: "ProfileData")
+                               // UserDefaults.synchronize()
                                 DispatchQueue.main.async {
                                     Utilities.sharedInstance.hideHUD(view: (self?.view)!);
                                     
