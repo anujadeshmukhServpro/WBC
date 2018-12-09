@@ -33,13 +33,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func isValidEmail(testStr:String) -> Bool {
-        //Method is used to validate email
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: testStr)
-    }
+    
     @IBAction func btnSignInOnclickAction(_ sender: Any) {
         self.performSegue(withIdentifier: "signUpProceedseg", sender: self)
 
@@ -51,13 +45,13 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
         {
             Utilities.sharedInstance.showErrorMessage("", message: "Please Enter password", controller: self)
         }
-        else if (isValidEmail(testStr: txtEmailIdTextField.text ?? "") == false)
+        else if (Utilities.sharedInstance.isValidEmail(txtEmailIdTextField.text ?? "") == false)
         {
             let resultMessage = "Please enter valid email id"
             Utilities.sharedInstance.showErrorMessage("", message: resultMessage,controller: self)
 
         }
-        if (self.txtPasswordTextFirld.text == "vipul@exceptionaire.co") && (self.txtEmailIdTextField.text == "Cyber@8131")
+        if (self.txtEmailIdTextField.text == "vipul@exceptionaire.co") && (self.txtPasswordTextFirld.text == "Cyber@8131")
         {
              self.getProfileData()
 
@@ -193,7 +187,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
                         //  return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
 
                         if let dictionary = json {
-                            var status = dictionary["status"] as! String
+                            let status = dictionary["status"] as! String
                             if status == "success"
                             {
                          let dict = dictionary["data"]
@@ -207,7 +201,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
 
                             UserDefaults.standard.set(dict, forKey: "GoogleFullName")
                             UserDefaults.standard.set(dict, forKey: "ProfileData")
-//                            print("Something went dict",dict)
+                            print("Something went dict",dict)
                                 DispatchQueue.main.async {
                                     Utilities.sharedInstance.hideHUD(view: (self?.view)!);
                                     
@@ -236,68 +230,7 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate{
                         catch {
                         print("Something went wrong")
                     }
-//                    }
-//                    var trimmedString = data.trimmingCharacters(in: .whitespaces)
-//
-//
-//                    let possibleWhiteSpace:NSArray = ["\t", "\n\r", "\n","\r","\r\n\r\n", "  ","//","/"] //here you add other types of white space
-//
-//                    possibleWhiteSpace.enumerateObjects { (whiteSpace, idx, stop) -> Void in
-//                        trimmedString = trimmedString.replacingOccurrences(of: whiteSpace as! String, with: "")
-//                    }
-                
-                        do
-                        {
-                            let decoder = JSONDecoder()
-                            self?.login = try decoder.decode(Login.self, from: data)
-//                            guard let status = self?.login?.status else {
-//                                return
-//                            }
-//
-//                            print("Status",status)
-//                            if status == "Fail"
-//                            {
-//                                DispatchQueue.main.async {
-//                                    //                            Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-//                                    //                            let result =  self?.updateAddress?.message
-//                                    //                            Utilities.sharedInstance.showErrorMessage("", message: result!, controller: self!)
-//
-//                                }
-//                            }
-//                            else if status == "Success" {
-//
-//                               /*
-//                                guard let login = self?.login?.data else{
-//                                    return
-//                                }
-//
-//                                self?.loginUserData = login
-//                                DispatchQueue.main.async {
-//
-//                                    //                            Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-//                                    //                            let result =  self?.updateAddress?.message
-//                                    //                            Utilities.sharedInstance.showErrorMessage("", message: result!, controller: self!)
-//                                    //                            let userName = (self?.txtUserNameEditTextField.text)! + (self?.txtSirnameTextField.text)!
-//                                    //
-//                                    //
-//                                    //                            UserDefaults.standard.set(userName , forKey: "UserName")
-//                                    //                            self?.navigationItem.rightBarButtonItem = nil
-//
-//
-//                                }
-//                                */
-//
-//                            }
-                        }
-                        catch {
-                            print(error.localizedDescription)
-                            DispatchQueue.main.async {
-                                                        Utilities.sharedInstance.hideHUD(view: (self?.view)!);
-                                                        Utilities.sharedInstance.showErrorMessage("", message: error.localizedDescription, controller: self!)
-                            }
-                        }
-                    
-                    }
+                }
                     else
                     {
                         

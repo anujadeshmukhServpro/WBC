@@ -63,77 +63,7 @@ class Utilities: NSObject {
     }
     
 
-    func convertDateFormat (taskDate:String)-> String
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //Your date format
-        let date = dateFormatter.date(from: taskDate)
-        
-        let dateFormatter1 = DateFormatter()
-        dateFormatter1.dateFormat = "dd-MM-yyyy"
-        let newDate = dateFormatter1.string(from: date!)
-        
-        return newDate
-    }
-    
-    
-    func convertDateFormat1 (taskDate:String)-> String
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //Your date format
-        let date = dateFormatter.date(from: taskDate)
-        
-        let dateFormatter1 = DateFormatter()
-        dateFormatter1.dateFormat = "yyyy-MM-dd"
-        let newDate = dateFormatter1.string(from: date!)
-        
-        return newDate
-    }
-    
-    
-     func getCalendarConvertedDate (eventDate:Date)-> String
-     {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:ss" //Your date format
-        let dateStr = dateFormatter.string(from: eventDate)
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //Your date format
-        let date1 = dateFormatter.date(from: dateStr)
-        
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        let formattedDate = dateFormatter.string(from: date1!)
-        
-        return formattedDate
-    }
-    
-    func getCalendarConvertedDateToTime (eventDate:Date)-> String
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //Your date format
-        let dateStr = dateFormatter.string(from: eventDate)
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //Your date format
-      //  dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00")! as TimeZone
-        let date1 = dateFormatter.date(from: dateStr)
-        
-        dateFormatter.dateFormat = "HH:mm"
-        let formattedDate = dateFormatter.string(from: date1!)
-        
-        return formattedDate;
-    }
-    
-    func ConvertedDateMiliSecondToDate (second:NSString)-> String
-    {
-    let milisecond = 1479714427;
-        let dateVar = Date.init(timeIntervalSinceNow: TimeInterval(second as String)!/1000);
-        let dateFormatter = DateFormatter();
-    dateFormatter.dateFormat = "dd-mm-yyyy HH:mm";
-    print(dateFormatter.string(from: dateVar));
-        
-        return dateFormatter.string(from: dateVar);
-    }
-    
-    
+   
     /// email validation
     ///
     /// - Parameter emailStr: email id
