@@ -208,14 +208,12 @@ func getBannerImages()
         }
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+                if let catagoryDataArray = self.catagoryData?[indexPath.row]  {
+                    let msg  = catagoryDataArray.categoryName ?? ""
+                    Utilities.sharedInstance.showErrorMessage("", message: msg,controller: self)
+                }
             
-            
-//                let confirmVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideoPlayViewController") as! VideoPlayViewController
-//                if let topicdataArray = self.topicdataArray  {
-//                    confirmVC.topicData = topicdataArray[indexPath.row]
-//                    confirmVC.VCIDString = "TopicData"
-//                }
-//                self.present(confirmVC, animated: true, completion: nil)
            
             
         }
